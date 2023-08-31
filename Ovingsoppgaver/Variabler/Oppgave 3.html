@@ -8,14 +8,12 @@
 <body>
     <p id = "average"></p>
     <script>
-        let familyMemberAge1 = 37
-        let familyMemberAge2 = 32
-        let familyMemberAge3 = 7
-        let familyMemberAge4 = 2
+        let fatherAge = 37
+        let motherAge = 32
+        let daughterAge = 7
+        let sonAge = 2
 
-        let averageSum
-        averageSum = familyMemberAge1 + familyMemberAge2 + familyMemberAge3 + familyMemberAge4
-        averageSum = averageSum / 4
+        let averageSum = (fatherAge + motherAge + daughterAge + sonAge) / 4
 
         document.getElementById("average").innerHTML = `The average age of the familiy is ${averageSum}`
     </script>
