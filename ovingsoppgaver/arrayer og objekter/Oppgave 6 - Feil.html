@@ -25,16 +25,17 @@
         ]
 
         let gamesText = ""
+        let iOSGames = []
 
-        const iOSgames = games.filter(
-            (value) => value.platforms.includes("iOS")
-        )
-
-        iOSgames.map(
+        games.map(
             (value) => {
-                let gamePlatforms = value["platforms"].join(", ")
-                let gameTitle = value["title"]
-                gamesText+=`<li>${gameTitle}, available on ${gamePlatforms}.</li>`
+                let gamePlatforms = value["platforms"]
+                if (gamePlatforms.includes("iOS")) {
+                    let gameName = value["title"]
+                    let thisGamePlatforms = gamePlatforms.join(", ")
+                    iOSGames.push(gameName)
+                    gamesText+=`<li>${gameName}, available on ${thisGamePlatforms}.</li>`
+                }
             }
         )
 
