@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 1</title>
+</head>
+<body>
+    <p id="utskrift"></p>
+    <script>
+        const dyr = ["Placozoer (Placozoa)", "Svamper (Porifera)", 
+        "Polyppdyr, nesledyr (Cnidaria)", "Ribbemaneter (Ctenophora)", 
+        "Flatormer (Platyhelminthes)", "Mesozoer (Mesozoa)", 
+        "Gnathostomulider (Gnathostomulida)", "Slimormer (Rhynchocoela)", 
+        "Hjuldyr (Rotifera)", "Gastrotricher (Gastrotricha)"]
+        const dyrIndexOne = 3
+        const dyrOne = dyr[dyrIndexOne]
+        const dyrIndexTwo = 7
+        const dyrTwo = dyr[dyrIndexTwo]
+
+        const tekst = `Her er det listet opp noen dyr, for eksempel ${dyrOne} og ${dyrTwo}.`
+
+        document.getElementById("utskrift").innerHTML = tekst
+    </script>
+</body>
+</html>

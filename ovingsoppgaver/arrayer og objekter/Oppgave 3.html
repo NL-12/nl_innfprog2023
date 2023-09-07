@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 3</title>
+</head>
+<body>
+    <p id="utskrift"></p>
+    <script>
+        let dyr = ["Rådyr", "Hund", "Katt", "Fugl", "Pinnsvin", "Gris", "Elg"]
+
+        dyr.push("Slange", "Sneile")
+        dyr.sort()
+
+        let antallDyr = dyr.length
+        let dyrStr = dyr.join(", ")
+        let tekst = `Antall dyr: ${antallDyr}, disse er ${dyrStr}.`
+        document.getElementById("utskrift").innerHTML = tekst
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 2</title>
+</head>
+<body>
+    <p id="utskrift"></p>
+    <script>
+        const dyr = ["Rådyr", "Hund", "Katt", "Fugl", "Pinnsvin", "Gris", "Elg"]
+        const animals = ["Buck", "Dog", "Cat", "Bird", "Porcupine", "Pig", "Moose"]
+        const dyr1NO = dyr[2]
+        const dyr1EN = animals[2]
+        const dyr2NO = dyr[6]
+        const dyr2EN = animals[6]
+
+        const tekst = `${dyr1NO} er et dyr. Det heter ${dyr1EN} på engelsk. ${dyr2NO} er også et dyr, som heter ${dyr2EN} på engelsk.`
+        document.getElementById("utskrift").innerHTML = tekst
+    </script>
+</body>
+</html>
