@@ -16,8 +16,8 @@
 
         let countPassed = 0
 
-        if (ITF19019_passed) { countPassed++ }      
-        if (ITF10511_passed) { countPassed++ }      
+        ITF19019_passed ? countPassed++ : null
+        ITF10511_passed ? countPassed++ : null
         
         const printText = `Du har bestått ${countPassed} av 2 kurs.`
         document.getElementById("utskrift").innerHTML = printText
