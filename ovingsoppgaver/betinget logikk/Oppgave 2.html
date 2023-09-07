@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 2</title>
+</head>
+<body>
+    <p id="messageText"></p>
+    <script>
+        const age = 25
+        let message = ""
+        
+        if (age < 18) {
+            message = "Du er ikke myndig."
+        } else if (age >= 18 && age <= 62) {
+            message = "Du er myndig og klar for studier eller arbeidslivet."
+        } else if (age > 62) {
+            message = "Du er pensjonsklar!"
+        }
+
+        document.getElementById("messageText").innerHTML = message
+    </script>
+</body>
+</html>
