@@ -76,7 +76,7 @@
     <script>
         // Deklarerer en variable for spilldata.
         let gameConfig = {
-            playerName: " ",
+            playerName: "",
             energy: 5,
             points: 10,
             duration: 138
@@ -94,8 +94,8 @@
         updateStaticUI = (dataToUnpack, specialMessage) => {
             for (let keyName in dataToUnpack) {
                 let valueToPrint = dataToUnpack[keyName]
-                // Her undersøkes det om objektet specialMessage eksisterer (ikke er undefined). Om det har en nøkkel som er lik en i dataToUnpack. Hvis den gjør det og verdien er både en string, og ikke false, blir denne alternative verdien brukt som utskrift.
-                specialMessage !== undefined && keyName in specialMessage && typeof valueToPrint === "string" && valueToPrint ? valueToPrint = specialMessage[keyName] : null
+                // Her undersøkes det om objektet specialMessage eksisterer (ikke er undefined). Om det har en nøkkel som er lik en i dataToUnpack. Hvis den gjør det og verdien er både en string, og er falsk (tom), blir denne alternative verdien brukt som utskrift.
+                specialMessage !== undefined && keyName in specialMessage && typeof valueToPrint === "string" && !valueToPrint ? valueToPrint = specialMessage[keyName] : null
                 document.getElementById(keyName).innerHTML = valueToPrint
             }
             return
