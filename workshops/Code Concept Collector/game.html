@@ -79,7 +79,7 @@
             playerName: "",
             energy: 5,
             points: 10,
-            duration: 138
+            duration: 100
         }
 
         // Deklarerer en variable for konseptene.
@@ -100,10 +100,73 @@
             }
             return
         }
+
+        updateSingleStaticUI = (dataToUnpack) => {
+            const id = dataToUnpack.id
+            dataToUnpack.specialValue !== undefined && dataToUnpack.value === undefined ? valueToPrint = dataToUnpack.specialValue: valueToPrint = dataToUnpack.value
+            document.getElementById(id).innerHTML = valueToPrint
+        }
         
+        updateConfigValue = (configType, value) => {
+            if (configType in gameConfig) {
+                const newValue = gameConfig[configType] + value
+                gameConfig[configType] = newValue
+                updateSingleStaticUI({value: newValue, id: configType})
+            } else if (configType in notebook) {
+                const newValue = notebook[configType] + value
+                notebook[configType] = newValue
+                updateSingleStaticUI({value: newValue, id: configType})
+            }
+        }
+
         updateStaticUI(gameConfig, {playerName: "Waiting for player..."})
         updateStaticUI(notebook)
+
+        toggleVisibility = (elementToToggle) => {
+            if (elementToToggle.classList.contains("hidden") === false) {
+                elementToToggle.style.display = "none"
+                elementToToggle.classList.add("hidden")
+            } else {
+                elementToToggle.style.display = "block"
+                elementToToggle.classList.remove("hidden")
+            }
+        }
+
+        handleKeypress = (key) => {
+            if (key in keymap) {
+                const command = keymap[key]
+                if (command.type === "toggle") {
+                    toggleVisibility(command.ID)
+                }
+            }
+        }
+
+        const notebookOverview = document.getElementById("notebook")
+        const informationOverview = document.getElementById("info")
+
+        const keymap = {
+            n: {type: "toggle", ID: notebookOverview},
+            i: {type: "toggle", ID: informationOverview}
+        }
+
+        const notebookButton = document.getElementById("notebookToggler");
+        const informationButton = document.getElementById("infoToggler");
+
+        notebookButton.addEventListener("click", (event) => {
+            toggleVisibility(notebookOverview)
+        });
+        informationButton.addEventListener("click", (event) => {
+            toggleVisibility(informationOverview)
+        });
         
+        document.addEventListener("keydown", (event) => {handleKeypress(event.key)});
+        
+        window.addEventListener("load", (event) => {
+            setInterval(function () {
+                updateConfigValue("duration", 1)
+            }, 1000);
+        })
+
     </script>
 </body>
 </html>
